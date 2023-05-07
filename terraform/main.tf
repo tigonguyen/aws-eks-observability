@@ -67,21 +67,15 @@ module "eks" {
         {
           namespace = "apps"
           labels = {
-            Application = "frontend"
+            Application = "backendapi"
           }
         },
         {
           namespace = "apps"
           labels = {
-            Application = "productapi"
+            Application = "database"
           }
         },
-        {
-          namespace = "apps"
-          labels = {
-            Application = "userapi"
-          }
-        }
       ]
       tags = {
         Owner = "apps"

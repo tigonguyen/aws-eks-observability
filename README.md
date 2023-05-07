@@ -13,7 +13,7 @@ It has only a /live endpoint answering text/plain; charset=utf-8. The following 
 
 Check the `config` package for more details on how to configure the database connection.
 ## Todo list
-- [ ] Set up an EKS cluster using Terraform and Fargate.
+- [x] Set up an EKS cluster using Terraform and Fargate.
 - [ ] Deploy the sample microservices application (e.g., Bookinfo from Istio) on the EKS cluster.
 - [ ] Use Prometheus to collect data from the microservices and store it in a time-series database.
 - [ ] Use Grafana to visualize the data collected by Prometheus.
