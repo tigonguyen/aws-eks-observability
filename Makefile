@@ -1,10 +1,11 @@
-infra:
-	minikube start
-	minikube kubectl
-build:
+terraform-apply:
+	cd terraform && terraform apply --auto-approve
+terraform-destroy:
+	cd terraform && terraform destroy --auto-approve
+apps-build:
 	cd apps && $(MAKE) build
-deploy:
+apps-deploy:
 	cd apps && $(MAKE) deploy
-clean: 
+apps-clean: 
 	cd apps && $(MAKE) clean
 	

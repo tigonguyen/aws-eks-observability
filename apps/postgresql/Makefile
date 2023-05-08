@@ -1,12 +1,7 @@
-DB_IMAGE_NAME ?= postgres-ssl
-TAG ?= v1.0.0
-DB_MANIFEST ?= postgresql.yml
-
 build:
-	minikube image build -t ${DB_IMAGE_NAME}:${TAG} .
-
+	docker build -t tigonguyen/postgresql:latest . && docker push tigonguyen/postgresql:latest
+	
 deploy:
-	minikube kubectl -- apply -f ${DB_MANIFEST}
-
+	kubectl apply -f postgresql.yml
 clean:
-	minikube kubectl -- delete -f ${DB_MANIFEST}
+	kubectl delete -f postgresql.yml

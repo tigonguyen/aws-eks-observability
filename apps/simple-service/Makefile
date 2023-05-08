@@ -1,12 +1,6 @@
-APP_IMAGE_NAME ?= simple-service
-TAG ?= v1.0.0
-APP_MANIFEST ?= simple-service.yml
-
 build:
-	minikube image build -t ${APP_IMAGE_NAME}:${TAG} .
-
+	docker build -t tigonguyen/simple-service:latest . && docker push tigonguyen/simple-service:latest
 deploy:
-	minikube kubectl -- apply -f ${APP_MANIFEST}
-
+	kubectl -- apply -f simple-service.yml
 clean:
-	minikube kubectl -- delete -f ${APP_MANIFEST}
+	kubectl -- delete -f simple-service.yml
