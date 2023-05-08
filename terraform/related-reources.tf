@@ -5,9 +5,3 @@ resource "aws_kms_key" "eks_kms_key" {
 
   tags = local.tags
 }
-
-# Create the ECR repository
-resource "aws_ecr_repository" "private_ecr" {
-  name = "k8s-obs-registry"
-  image_tag_mutability = "MUTABLE"  # Optional: Adjust tag mutability based on your requirements
-}

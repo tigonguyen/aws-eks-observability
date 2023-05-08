@@ -1,4 +1,4 @@
-module "eks" {
+module "eks_cluster" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 18.0"
 
@@ -6,12 +6,6 @@ module "eks" {
   cluster_version                 = local.env_vars.clusterVersion
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
-
-  cluster_default_node_group = {
-    kubernetes_labels = {
-      "image.ecr.${aws_region}.amazonaws.com/k8s-obs-registry" = "true"
-    }
-  }
 
   cluster_addons = {
     # Check README.md References for Update CoreDNS
@@ -25,7 +19,7 @@ module "eks" {
   }
 
   cluster_encryption_config = [{
-    provider_key_arn = aws_kms_key.eks.arn
+    provider_key_arn = aws_kms_key.eks_kms_key.arn
     resources        = ["secrets"]
   }]
 
