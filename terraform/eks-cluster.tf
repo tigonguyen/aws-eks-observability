@@ -67,13 +67,13 @@ module "eks_cluster" {
         {
           namespace = "apps"
           labels = {
-            Application = "backendapi"
+            app = "simple-service"
           }
         },
         {
           namespace = "apps"
           labels = {
-            Application = "database"
+            app = "postgresql"
           }
         },
       ]
