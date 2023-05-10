@@ -10,6 +10,21 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: docker.io/hostpath
 ---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: postgresql-pv
+  labels:
+    app: postgresql-db
+spec:
+  storageClassName: postgresql-hostpath
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/var/data"
+---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -72,6 +87,10 @@ spec:
         volumeMounts:
         - name: pv-data
           mountPath: /var/lib/postgresql/data
+      volumes:
+      - name: pv-data
+        persistentVolumeClaim:
+          claimName: postgresql-pv-claim
 ---
 apiVersion: v1
 kind: Service
