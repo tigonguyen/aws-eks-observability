@@ -4,6 +4,6 @@ locals {
   tags = {
     Env        = "${terraform.workspace}"
     Author     = "tigonguyen"
-    GithubRepo = "tigonguyen/aws-eks-production-ready-observability"
+    GithubRepo = "tigonguyen/aws-eks-observability"
   }
 }
