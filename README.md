@@ -1,4 +1,4 @@
-# aws-eks-production-ready-observability
+# aws-eks-observability
 
 ## Description
 This lab is designed to help users create a production-ready observability environment for their Kubernetes cluster. It includes steps to set up an EKS cluster using Terraform and Fargate, deploy a microservices application, collect and store data using Prometheus, visualize data using Grafana, and send logs to an Elasticsearch cluster using Fluentd or Logstash. The lab also covers configuring alerts and notifications using Prometheus Alertmanager or ELK Watcher, and adding additional monitoring tools such as Jaeger for tracing.
